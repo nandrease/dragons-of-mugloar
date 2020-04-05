@@ -1,0 +1,34 @@
+@import 'variables';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background: url('../vintage-bg.jpg') center top no-repeat;
+    background-size: cover;
+    color: $main-color;
+    font-family: $font-family;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: .5em 0 .8em;
+}
+
+p {
+    margin-bottom: 1em;
+}
