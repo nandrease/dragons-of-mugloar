@@ -16,6 +16,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/assets/css/variables.scss";
+
 button {
   border: 3px solid;
   padding: 1em 2em;
@@ -24,7 +26,7 @@ button {
   font-weight: 500;
 }
 button:hover {
-  background: rgba(255, 255, 255, 0.8);
+  background: $hover-bg;
   font-weight: bold;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div v-if="game">
-      <p>{{JSON.stringify(game)}}</p>
+      <GameView :game="game" />
     </div>
     <div v-else class="welcome">
       <h1>Welcome to Mugloar</h1>
@@ -15,11 +15,13 @@
 
 <script>
 import AppButton from "./components/AppButton";
+import GameView from "./containers/GameView";
 
 export default {
   name: "App",
   components: {
-    AppButton
+    AppButton,
+    GameView
   },
   methods: {
     startGame() {
