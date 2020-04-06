@@ -5,14 +5,7 @@
 </template>
 
 <script>
-export default {
-  props: {
-    text: {
-      type: String,
-      default: "Click here!"
-    }
-  }
-};
+export default {};
 </script>
 
 <style lang="scss">
@@ -24,9 +17,16 @@ button {
   text-transform: uppercase;
   background: transparent;
   font-weight: 500;
-}
-button:hover {
-  background: $hover-bg;
-  font-weight: bold;
+
+  &:hover {
+    background: $hover-bg;
+  }
+  &[white] {
+    color: #fff;
+    &:hover {
+      color: #ccc;
+      background: $hover-dark-bg;
+    }
+  }
 }
 </style>

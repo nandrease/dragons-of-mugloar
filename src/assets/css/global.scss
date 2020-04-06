@@ -33,3 +33,15 @@ h6 {
 p {
     margin-bottom: 1em;
 }
+
+a,
+button {
+    text-decoration: none;
+    color: $main-color;
+    transition: all .3s ease-in;
+    font-weight: 600;
+
+    &:hover {
+        color: #000;
+    }
+}

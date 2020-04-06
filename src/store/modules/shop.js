@@ -1,5 +1,9 @@
 import axios from "axios";
-import { baseUrl, FETCH_SHOP_ITEMS, UPDATE_GAME_STATUS } from "../mutation-types";
+import {
+  baseUrl,
+  FETCH_SHOP_ITEMS,
+  UPDATE_GAME_STATUS
+} from "../mutation-types";
 
 const state = {
   items: []
