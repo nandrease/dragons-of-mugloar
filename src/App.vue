@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <div v-if="game">
-      {{JSON.stringify(game)}}
       <GameView :game="game" />
     </div>
     <div v-else class="welcome">
@@ -31,7 +30,7 @@ export default {
   },
   computed: {
     game() {
-      return this.$store.state.game;
+      return this.$store.getters.game;
     }
   }
 };

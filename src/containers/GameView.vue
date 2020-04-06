@@ -16,7 +16,7 @@ export default {
   },
   computed: {
     ads() {
-      return this.$store.getters.ads;
+      return this.$store.getters.ads || [];
     }
   },
   methods: {
