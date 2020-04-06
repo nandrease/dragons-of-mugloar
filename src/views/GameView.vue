@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
 import AppCard from "@/components/AppCard";
 
 export default {
@@ -26,17 +27,13 @@ export default {
     AppCard
   },
   computed: {
-    ads() {
-      return this.$store.getters.ads || [];
-    }
+    ...mapGetters(["ads"])
   },
   methods: {
-    solve(adId) {
-      this.$store.dispatch("solveAd", adId);
-    }
+    ...mapActions(["solve", "fetchAds"])
   },
   created() {
-    this.$store.dispatch("fetchAds");
+    this.fetchAds();
   }
 };
 </script>

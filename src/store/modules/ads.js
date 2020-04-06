@@ -29,7 +29,7 @@ const actions = {
         router.push("/");
       });
   },
-  solveAd({ commit, dispatch, getters }, adId) {
+  solve({ commit, dispatch, getters }, adId) {
     const gameId = getters.game.gameId;
     axios
       .post(`${baseUrl}/api/v2/${gameId}/solve/${adId}`)

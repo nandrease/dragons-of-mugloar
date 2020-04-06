@@ -34,15 +34,14 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import AppButton from "./AppButton";
 export default {
   components: {
     AppButton
   },
   computed: {
-    game() {
-      return this.$store.getters.game;
-    }
+    ...mapGetters(["game"])
   }
 };
 </script>
@@ -70,10 +69,6 @@ export default {
 
     button {
       width: 100%;
-    }
-
-    &:hover {
-      color: #ededed;
     }
 
     @include breakpoint("phone") {

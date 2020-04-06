@@ -2,7 +2,6 @@
   <div>
     <h1 class="title">Shop</h1>
     <div class="card-board">
-      <!-- <ShopItem v-for="item in items" :key="item.id" :item="item" /> -->
       <AppCard v-for="item in items" :key="item.id">
         <div slot="title">
           <p>Id: {{ item.id }} | Cost: {{ item.cost }}</p>
@@ -19,6 +18,7 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
 import AppCard from "@/components/AppCard";
 
 export default {
@@ -26,17 +26,13 @@ export default {
     AppCard
   },
   computed: {
-    items() {
-      return this.$store.getters.items;
-    }
+    ...mapGetters(["items"])
   },
   methods: {
-    buy(itemId) {
-      this.$store.dispatch("buyItem", itemId);
-    }
+    ...mapActions(["buy", "fetchShopListings"])
   },
   created() {
-    this.$store.dispatch("fetchShopListings");
+    this.fetchShopListings();
   }
 };
 </script>

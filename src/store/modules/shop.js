@@ -29,7 +29,7 @@ const actions = {
       })
       .catch(err => dispatch("errorMessage", err));
   },
-  buyItem({ commit, dispatch, getters }, itemId) {
+  buy({ commit, dispatch, getters }, itemId) {
     const gameId = getters.game.gameId;
     axios
       .post(`${baseUrl}/api/v2/${gameId}/shop/buy/${itemId}`)

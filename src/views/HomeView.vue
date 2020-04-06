@@ -8,7 +8,7 @@
       </template>
       <template v-else>
         <router-link to="/quest">
-          <AppButton>Start</AppButton>
+          <AppButton>Solve</AppButton>
         </router-link>
         <router-link to="/shop">
           <AppButton>Shop</AppButton>
@@ -26,6 +26,7 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
 import AppButton from "../components/AppButton";
 import AppStats from "../components/AppStats";
 
@@ -35,17 +36,10 @@ export default {
     AppStats
   },
   methods: {
-    startGame() {
-      this.$store.dispatch("startGame");
-    },
-    restart() {
-      this.$store.dispatch("restart");
-    }
+    ...mapActions(["startGame", "restart"])
   },
   computed: {
-    game() {
-      return this.$store.getters.game;
-    }
+    ...mapGetters(["game"])
   }
 };
 </script>
