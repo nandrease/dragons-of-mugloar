@@ -1,6 +1,8 @@
 <template>
   <div id="app">
     <div v-if="game">
+      <AppNavbar @open-shop="openShop" />
+      <ShopView v-if="shop" />
       <GameView :game="game" />
     </div>
     <div v-else class="welcome">
@@ -15,17 +17,29 @@
 
 <script>
 import AppButton from "./components/AppButton";
+import AppNavbar from "./components/AppNavbar";
 import GameView from "./containers/GameView";
+import ShopView from "./containers/ShopView";
 
 export default {
   name: "App",
   components: {
     AppButton,
-    GameView
+    AppNavbar,
+    GameView,
+    ShopView
+  },
+  data() {
+    return {
+      shop: false
+    };
   },
   methods: {
     startGame() {
       this.$store.dispatch("startGame");
+    },
+    openShop() {
+      this.shop = !this.shop;
     }
   },
   computed: {
