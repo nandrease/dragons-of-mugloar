@@ -1,4 +1,6 @@
 @import 'variables';
+@import "~noty/src/noty.scss";
+@import "~noty/src/themes/semanticui.scss";
 
 * {
     margin: 0;
@@ -44,4 +46,9 @@ button {
     &:hover {
         color: #000;
     }
+}
+
+.noty_theme__semanticui.noty_bar{
+    border: 3px solid;
+    border-radius: 0;
 }

@@ -31,6 +31,36 @@
         </li>
       </ul>
     </template>
+    <template v-if="reputation" slot="footer">
+      <h3>Game Statistics</h3>
+      {{ JSON.stringify(reputation) }}
+      <ul class="grid-menu">
+        <li>
+          Game id
+          <strong>{{ game.gameId }}</strong>
+        </li>
+        <li>
+          Level
+          <strong>{{ game.level }}</strong>
+        </li>
+        <li>
+          Score
+          <strong>{{ game.score }}</strong>
+        </li>
+        <li>
+          High score
+          <strong>{{ game.highScore }}</strong>
+        </li>
+        <li>
+          Gold
+          <strong>{{ game.gold }}</strong>
+        </li>
+        <li>
+          Lives
+          <strong>{{ game.lives }}</strong>
+        </li>
+      </ul>
+    </template>
   </AppCard>
 </template>
 
@@ -44,6 +74,9 @@ export default {
   computed: {
     game() {
       return this.$store.getters.game;
+    },
+    reputation() {
+      return this.$store.getters.reputation;
     }
   }
 };

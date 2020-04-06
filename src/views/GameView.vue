@@ -2,7 +2,7 @@
   <div>
     <h1 class="title">Message board</h1>
     <div class="card-board">
-      <AppCard v-for="ad in ads" :key="ad.adId" :ad="ad">
+      <AppCard v-for="ad in ads" :key="ad.adId">
         <div slot="title">
           <p>Reward: {{ ad.reward }} | Expires in: {{ ad.expiresIn }}</p>
           <p>
@@ -32,7 +32,6 @@ export default {
   },
   methods: {
     solve(adId) {
-      console.log("solve", adId);
       this.$store.dispatch("solveAd", adId);
     }
   },

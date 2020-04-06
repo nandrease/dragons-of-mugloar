@@ -20,6 +20,11 @@
   border: 3px solid;
   text-align: center;
   transition: background 0.5s ease-in;
+  max-width: calc(100vw - 40px);
+
+  .card p {
+    word-break: break-word;
+  }
 
   &:hover {
     background: $hover-bg;

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { baseUrl, INIT_GAME } from "../mutation-types";
+import { baseUrl, INIT_GAME, RESTART_GAME } from "../mutation-types";
 
 const state = {
   game: null
@@ -15,6 +15,9 @@ const mutations = {
   },
   UPDATE_GAME_STATUS(state, status) {
     state.game = { ...state.game, ...status };
+  },
+  RESTART_GAME(state) {
+    state.game = null;
   }
 };
 
@@ -26,6 +29,9 @@ const actions = {
         commit(INIT_GAME, response.data);
       })
       .catch(err => dispatch("errorMessage", err));
+  },
+  restart({ commit }) {
+    commit(RESTART_GAME);
   }
 };
 
