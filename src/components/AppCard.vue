@@ -10,7 +10,7 @@
       <p>{{ ad.message }}</p>
     </div>
     <div class="card-footer">
-      <Button>Solve</Button>
+      <Button @click="solve()">Solve</Button>
     </div>
   </div>
 </template>
@@ -20,6 +20,11 @@ export default {
   props: {
     ad: {
       type: Object
+    }
+  },
+  methods: {
+    solve() {
+      this.$store.dispatch("solveAd", this.ad.adId);
     }
   }
 };

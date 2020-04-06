@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <div v-if="game">
+      {{JSON.stringify(game)}}
       <GameView :game="game" />
     </div>
     <div v-else class="welcome">
