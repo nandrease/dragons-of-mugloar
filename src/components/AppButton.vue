@@ -17,6 +17,7 @@ button {
   text-transform: uppercase;
   background: transparent;
   font-weight: 500;
+  width: 100%;
 
   &:hover {
     background: $hover-bg;

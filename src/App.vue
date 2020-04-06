@@ -26,7 +26,7 @@ export default {
   display: grid;
   grid-template-rows: 1fr auto;
   grid-gap: 10px;
-  align-items: center;
+  align-items: start;
   min-height: 100%;
   padding: 0 20px 20px;
 }

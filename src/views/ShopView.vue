@@ -2,21 +2,37 @@
   <div>
     <h1 class="title">Shop</h1>
     <div class="card-board">
-      <ShopItem v-for="item in items" :key="item.id" :item="item" />
+      <!-- <ShopItem v-for="item in items" :key="item.id" :item="item" /> -->
+      <AppCard v-for="item in items" :key="item.id">
+        <div slot="title">
+          <p>Id: {{ item.id }} | Cost: {{ item.cost }}</p>
+          <p>
+            <strong>{{ item.name }}</strong>
+          </p>
+        </div>
+        <div slot="footer">
+          <Button @click="buy(item.id)">Buy</Button>
+        </div>
+      </AppCard>
     </div>
   </div>
 </template>
 
 <script>
-import ShopItem from "@/components/ShopItem";
+import AppCard from "@/components/AppCard";
 
 export default {
   components: {
-    ShopItem
+    AppCard
   },
   computed: {
     items() {
       return this.$store.getters.items;
+    }
+  },
+  methods: {
+    buy(itemId) {
+      this.$store.dispatch("buyItem", itemId);
     }
   },
   created() {

@@ -1,11 +1,9 @@
 <template>
-  <div class="card">
-    <div class="card-title">
-      <p>
-        <strong>Game Statistics</strong>
-      </p>
-    </div>
-    <div class="card-body">
+  <AppCard>
+    <template slot="title">
+      <h3>Game Statistics</h3>
+    </template>
+    <template>
       <ul class="grid-menu">
         <li>
           Game id
@@ -32,12 +30,17 @@
           <strong>{{ game.lives }}</strong>
         </li>
       </ul>
-    </div>
-  </div>
+    </template>
+  </AppCard>
 </template>
 
 <script>
+import AppCard from "./AppCard";
+
 export default {
+  components: {
+    AppCard
+  },
   computed: {
     game() {
       return this.$store.getters.game;
@@ -47,25 +50,12 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/assets/css/variables.scss";
-
-.card {
-  padding: 20px;
-  border: 3px solid;
-  text-align: center;
-  transition: background 0.5s ease-in;
-
-  &:hover {
-    background: $hover-bg;
-  }
-
-  .grid-menu {
-    list-style: none;
-    text-align: left;
-    li {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
+.grid-menu {
+  list-style: none;
+  text-align: left;
+  li {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 }
 </style>

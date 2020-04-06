@@ -2,7 +2,18 @@
   <div>
     <h1 class="title">Message board</h1>
     <div class="card-board">
-      <AppCard v-for="ad in ads" :key="ad.adId" :ad="ad" />
+      <AppCard v-for="ad in ads" :key="ad.adId" :ad="ad">
+        <div slot="title">
+          <p>Reward: {{ ad.reward }} | Expires in: {{ ad.expiresIn }}</p>
+          <p>
+            <strong>{{ ad.probability }}</strong>
+          </p>
+        </div>
+        <p>{{ ad.message }}</p>
+        <div slot="footer">
+          <Button @click="solve(ad.adId)">Solve</Button>
+        </div>
+      </AppCard>
     </div>
   </div>
 </template>
@@ -20,12 +31,13 @@ export default {
     }
   },
   methods: {
-    fetchAds() {
-      this.$store.dispatch("fetchAds");
+    solve(adId) {
+      console.log("solve", adId);
+      this.$store.dispatch("solveAd", adId);
     }
   },
   created() {
-    this.fetchAds();
+    this.$store.dispatch("fetchAds");
   }
 };
 </script>

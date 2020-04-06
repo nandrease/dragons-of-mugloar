@@ -1,20 +1,13 @@
 <template>
-  <div v-if="game" class="d-grid w-100">
+  <div v-if="game" class="home-view">
     <AppStats />
+    <h3>Start solving quests with your dragon!</h3>
     <div class="d-grid grid-items">
       <router-link to="/quest">
-        <div class="card">
-          <div class="card-title">
-            <strong>Solve Quest</strong>
-          </div>
-        </div>
+        <AppButton>Start</AppButton>
       </router-link>
       <router-link to="/shop">
-        <div class="card">
-          <div class="card-title">
-            <strong>Shop</strong>
-          </div>
-        </div>
+        <AppButton>Shop</AppButton>
       </router-link>
     </div>
   </div>
@@ -22,7 +15,7 @@
     <h1>Welcome to Mugloar</h1>
     <h3>Dragon services needed!</h3>
     <p>
-      <AppButton @click.native="startGame()">Start New Game</AppButton>
+      <AppButton @click.native="startGame()">Enter</AppButton>
     </p>
   </div>
 </template>
@@ -53,16 +46,18 @@ export default {
 .d-grid {
   display: grid;
   grid-gap: 10px;
-}
-.w-100 {
-  width: 100%;
+  justify-content: center;
 }
 .grid-items {
   grid-template-columns: 1fr 1fr;
 }
-.welcome {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.welcome,
+.home-view {
+  align-self: center;
+  display: grid;
+  justify-content: center;
+  text-align: center;
+  grid-gap: 10px;
+  grid-template-columns: 350px;
 }
 </style>
