@@ -1,6 +1,5 @@
 import axios from "axios";
-import { baseUrl, FETCH_ADS, UPDATE_GAME_STATUS } from "../mutation-types";
-import router from "@/router";
+import { baseUrl, SET_ADS, UPDATE_GAME_STATUS } from "../mutation-types";
 
 const state = {
   ads: []
@@ -11,7 +10,7 @@ const getters = {
 };
 
 const mutations = {
-  FETCH_ADS(state, ads) {
+  SET_ADS(state, ads) {
     state.ads = ads;
   }
 };
@@ -22,11 +21,10 @@ const actions = {
     axios
       .get(`${baseUrl}/api/v2/${gameId}/messages`)
       .then(response => {
-        commit(FETCH_ADS, response.data);
+        commit(SET_ADS, response.data);
       })
       .catch(err => {
         dispatch("errorMessage", err.response.data.status);
-        router.push("/");
       });
   },
   solve({ commit, dispatch, getters }, adId) {

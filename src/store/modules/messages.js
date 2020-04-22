@@ -1,4 +1,5 @@
 import Noty from "noty";
+import router from "@/router";
 
 const actions = {
   errorMessage: (_, message) => {
@@ -9,6 +10,9 @@ const actions = {
       text: message,
       type: "error"
     }).show();
+    if (message === "Game Over") {
+      router.push("/");
+    }
   },
 
   successMessage: (_, message) => {
